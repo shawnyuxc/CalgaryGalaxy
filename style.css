@@ -1,0 +1,533 @@
+:root {
+      --primary: #860802;
+      --primary-dark: #5c0601;
+      --bg-dark: #070507;
+      --gold: #d4a84b;
+      --text: #333;
+      --light-bg: #f8f4f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* Header / Banner */
+    .site-header {
+      background: linear-gradient(90deg, #8b0000 0%, #c41e1e 40%, #8b0000 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-top {
+      background: url('./theme/bg-home.png') center top / cover no-repeat;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .banner-top::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(139,0,0,0.85) 0%, rgba(196,30,30,0.6) 50%, rgba(139,0,0,0.85) 100%);
+    }
+
+    .logo-title {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      padding: 1.5rem 1rem;
+    }
+
+    .logo-title h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation */
+    .nav-wrap {
+      background: var(--bg-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; 
+      padding: 0 20px; 
+    }
+
+.nav-logo img {
+    height: 70px;             /* Adjust to fit your design height */
+    width: auto;              /* Maintains image proportions */
+    display: block;
+	padding: 2px;
+}
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 0.75rem;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-list a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 1.1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+      border-right: 1px solid #333;
+    }
+
+    .nav-list a:last-child {
+      border-right: none;
+    }
+
+    .nav-list a span {
+      display: block;
+      font-size: 1.05rem;
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      background: var(--primary);
+    }
+
+    /* Hero section with slideshow + contact */
+    .hero {
+     /* background: #50030b;*/
+	   background: url('./theme/calgarysnow3.jpg') center top / cover no-repeat;
+      color: #fff;
+      padding: 1.5rem 1rem 2rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero-info {
+      text-align: center;
+    }
+
+    .hero-info h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-family: "Microsoft YaHei", sans-serif;
+      margin-bottom: 0.8rem;
+      color: #f5e6c8;
+	  text-shadow: 0 0 10px rgba(134, 8, 2, 0.6);
+    }
+
+    .hero-info p {
+      color: #f5e6c8;
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+	  text-shadow: 0 0 10px rgba(134, 8, 2, 0.6);
+    }
+
+    .slideshow {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: #222;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      position: absolute;
+      inset: 0;
+    }
+
+    .slideshow img.active {
+      display: block;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    /* Main content layout */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+    }
+
+    /* Sidebar boxes */
+    .sidebar .box {
+      background: var(--light-bg);
+      border: 1px solid #e0d5c8;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+
+    .box-header {
+      background: linear-gradient(to bottom, #f5ebe0, #e8d9c8);
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      border-bottom: 1px dotted #ccc;
+      font-size: 1rem;
+    }
+
+    .box-body {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .box-body h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .box-body ul {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+
+    .box-body li {
+      margin-bottom: 0.25rem;
+    }
+
+    .btn-join {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: linear-gradient(to bottom, #c41e1e, #8b0000);
+      color: #fff;
+      padding: 0.55rem 1.4rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-join:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(139,0,0,0.35);
+    }
+
+    /* Content area */
+    .content h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 400;
+      border-bottom: 1px dotted #000;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+	
+	  .content h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 600;  
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .content .zh {
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+	
+	.content img {
+  width: 100%;
+      height: 100%;
+      object-fit: cover;  
+      inset: 0;
+}
+
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      background: #000;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .team-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .team-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color: #aaa;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .footer-links {
+      margin-bottom: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .sidebar .box {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--bg-dark);
+      }
+
+      .nav-list.open {
+        display: flex;
+      }
+
+      .nav-list a {
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 0.85rem 1.2rem;
+        text-align: left;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-title h1 {
+        font-size: 1.5rem;
+      }
+    }
+	
+	
+/* Responsive music table */
+.music-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; 
+}
+
+.music-table th,
+.music-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    overflow-wrap: anywhere;
+}
+
+.music-table thead tr,
+.music-table tr.music-header {
+    background-color: #444;
+    color: white;
+}
+
+.music-table tbody tr:nth-child(even) {
+   /* background-color: #ECECEC;*/
+}
+
+.music-table tbody tr:nth-child(odd) {
+    /* background-color: #D9D9D9;*/
+}
+
+.music-table a {
+    display: inline-block;
+    padding: 4px 0;
+    color: #075db5;
+    text-decoration: none;
+}
+
+.music-table a:hover {
+    text-decoration: underline;
+}
+
+.music-table img {
+    max-width: 100%;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 600px) {
+    .music-table,
+    .music-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .music-table thead {
+        display: none;
+    }
+
+    .music-table tr.music-header {
+        display: none;
+    }
+
+    .music-table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-bottom: 12px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f8f8f8 !important;
+        height: auto !important;
+    }
+
+    .music-table tbody td {
+        display: grid;
+        grid-template-columns: 95px minmax(0, 1fr);
+        gap: 8px;
+        padding: 4px 0;
+        border: none;
+        min-width: 0;
+    }
+
+    .music-table tbody td:nth-child(1)::before {
+        content: "序号";
+        font-weight: bold;
+    }
+
+    .music-table tbody td:nth-child(2)::before {
+        content: "名称";
+        font-weight: bold;
+    }
+
+    .music-table tbody td:nth-child(3)::before {
+        content: "歌谱下载";
+        font-weight: bold;
+    }
+
+    .music-table tbody td:nth-child(4)::before {
+        content: "歌曲试听";
+        font-weight: bold;
+    }
+	
+	
+	
+	.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery figure:hover img {
+  transform: scale(1.05);
+}
+
+}
