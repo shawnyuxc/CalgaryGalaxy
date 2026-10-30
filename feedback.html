@@ -6,6 +6,8 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Galaxy Performing Arts Society | 星河艺术团</title>
 <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"> 
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </head>
 <body>
 
@@ -106,10 +108,29 @@
   <p> 当结束曲《二十年后再相会》响起的时候，全场起立，掌声经久不衰。在这经久不衰的掌声里笔者似乎看到了中华文化之花放妍的灿烂，理解了星河人倾二十年的努力只做一件事，那就是星河人搭建的艺术桥梁实则是在构建海外华人文化生态而从事的伟大实践！笔者突然明白了这就是为什么有来自于中华人民共和国卡尔加里总领事馆的贺信、有来自于渥太华加拿大政府的贺词，更有数十家卡城华人社团的支持与协助。
   </p>  
   <p> 祝贺星河演出圆满成功！</p>
-       <p>  <img src="images/710.jpeg"  >  
-      </p> <p>  <img src="images/711.jpeg"  >  
-      </p>
+   
 	  </div>  
+
+     <div class="row">
+                    <div class="col-md-12"> 
+                        <ul class="box-container ">
+                            <li class="box">
+                                <div class="inner">
+                                    <a href="images/710.jpeg" class="glightbox">
+                                        <img src="images/710.jpeg" alt="image" />
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="box">
+                                <div class="inner">
+                                    <a href="images/711.jpeg" class="glightbox">
+                                        <img src="images/711.jpeg" alt="image" />
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
   	<p style="text-align:right"> <a href="index.html">返回首页>></a></p> 
     </article>
   </div>
@@ -125,16 +146,53 @@
     </div>
     <p>&copy; Copyright Galaxy Performing Arts Society. All Rights Reserved.</p>
   </footer>
+ 
+<script src="js/valde.min.js"></script> 
+        <script src="js/site.js"></script>
+   <script>
+            var lightbox = GLightbox();
+            lightbox.on('open', (target) => {
+                console.log('lightbox opened');
+            });
+            var lightboxDescription = GLightbox({
+                selector: '.glightbox2'
+            });
+            var lightboxVideo = GLightbox({
+                selector: '.glightbox3'
+            });
+            lightboxVideo.on('slide_changed', ({ prev, current }) => {
+                console.log('Prev slide', prev);
+                console.log('Current slide', current);
 
-  <script>
-    // Simple slideshow
-    const slides = document.querySelectorAll('#slideshow img');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 3500);
-  </script>
+                const { slideIndex, slideNode, slideConfig, player } = current;
+
+                if (player) {
+                    if (!player.ready) {
+                        // If player is not ready
+                        player.on('ready', (event) => {
+                            // Do something when video is ready
+                        });
+                    }
+
+                    player.on('play', (event) => {
+                        console.log('Started play');
+                    });
+
+                    player.on('volumechange', (event) => {
+                        console.log('Volume change');
+                    });
+
+                    player.on('ended', (event) => {
+                        console.log('Video ended');
+                    });
+                }
+            });
+
+            var lightboxInlineIframe = GLightbox({
+                selector: '.glightbox4'
+            });
+ 
+        </script>
+ 
 </body>
 </html>
