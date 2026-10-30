@@ -499,9 +499,10 @@
     .music-table tbody td:nth-child(4)::before {
         content: "歌曲试听";
         font-weight: bold;
-    }
-	
-	
+    } 
+}
+
+
 	
 	.gallery {
   display: grid;
@@ -530,4 +531,40 @@
   transform: scale(1.05);
 }
 
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.image-gallery a {
+    display: block;
+    overflow: hidden;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.image-gallery img:hover {
+    opacity: 0.8;
+}
+
+/* Mobile: one image per row */
+@media screen and (max-width: 600px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .image-gallery img {
+        height: auto;
+        object-fit: contain;
+    }
 }
