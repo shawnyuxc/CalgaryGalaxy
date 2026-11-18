@@ -388,10 +388,173 @@
                             </li>
                         </ul>
                     </div>
-                </div> 
+        </div> 
+
+    <!-- Toggle button with accessibility attributes -->  
+<button id="toggleBtn2019" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2019
+</button>
+<button id="toggleBtn2018" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2016-2018
+</button>
+<button id="toggleBtn2015" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2013-2015
+</button>
+<button id="toggleBtn2012" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2012
+</button>
+<button id="toggleBtn2011" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2011
+</button>
+<button id="toggleBtn2010" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2010
+</button>
+<button id="toggleBtn2009" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2009
+</button>
+<button id="toggleBtn2008" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2008
+</button>
+<button id="toggleBtn2007" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2007
+</button>
+<button id="toggleBtn2006" aria-expanded="false" aria-controls="photoContainer" class="btn-type-2">
+  2006
+</button>
+
+<!-- Hidden div that will hold the photos -->  
+    <div id="photoContainer" class="photo-grid" class="row" hidden>
+                    <div class="col-md-12"> 
+                        <ul id="photolist" class="box-container three-cols">  
+                        </ul>
+                    </div>
+    </div>
  
-  	<p style="text-align:right"> <a href="index.html">返回首页>></a></p> 
+     
+  	<p style="text-align:right"> <a href="index.html">返回首页>></a></p>  
+
     </article>
+
+  <script>
+const toggleBtn = document.getElementById('toggleBtn');
+const photoContainer = document.getElementById('photoContainer');
+const photolist = document.getElementById('photolist'); 
+
+// Your list of image URLs and descriptions 
+
+let imagesLoaded = false;
+
+toggleBtn2018.addEventListener('click', () => {
+  // Check if the div is currently hidden
+ ShowPhotos(2018);
+});
+
+toggleBtn2019.addEventListener('click', () => {
+  // Check if the div is currently hidden
+ ShowPhotos(2019);
+});
+
+
+toggleBtn2015.addEventListener('click', () => {
+  // Check if the div is currently hidden
+ ShowPhotos(2015);
+});
+
+
+function ShowPhotos(year)
+{ 
+    photos=[]; 
+    if (year == 2019)
+    {
+        photos = [
+                    { url: 'galaxyphoto/2019/2019-1.JPG', alt: '' },
+                    { url: 'galaxyphoto/2019/2019-2.jpg', alt: '' },
+                    { url: 'galaxyphoto/2019/2019-3.jpg', alt: '' } 
+                ];
+    }  
+
+     if (year == 2018)
+    {
+        photos = [
+                    { url: 'galaxyphoto/2016-2018/20170520.jpg', alt: '' },
+                    { url: 'galaxyphoto/2016-2018/20170702.jpg', alt: '' },
+                    { url: 'galaxyphoto/2016-2018/leth1.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2016-2018/leth2.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2016-2018/leth3.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2016-2018/leth4.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2016-2018/pro1.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2016-2018/520.jpg', alt: '' } 
+                ];
+    }  
+
+    if (year == 2015)
+    {
+        photos = [
+                    { url: 'galaxyphoto/2013-2015/1and6.jpg', alt: '' },
+                    { url: 'galaxyphoto/2013-2015/3and4.jpg', alt: '' }, 
+                    { url: 'galaxyphoto/2013-2015/2014.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2014_1.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2014_2.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2014_3.jpg', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_1.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_2.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_3.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_4.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_5.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_6.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_7.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_8.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2015_9.PNG', alt: '' } ,
+                    { url: 'galaxyphoto/2013-2015/2013concert.PNG', alt: '' } 
+                ];
+    }  
+
+
+     const isHidden = photoContainer.hasAttribute('hidden');
+
+  //if (isHidden) 
+  {
+    // 1. Show the div and update button text/state
+    photoContainer.removeAttribute('hidden');
+    photolist.innerHTML='';
+
+    // 2. Load the photos only the first time it is opened
+   // if (!imagesLoaded) 
+    {  
+      photos.forEach(photo => { 
+        const linew = document.createElement('li');
+        const divnew = document.createElement('div');
+        const imgnew = document.createElement('img');
+        const a = document.createElement('a'); 
+
+        imgnew.src = photo.url;
+        imgnew.alt = 'image';
+         imgnew.loading = 'lazy'; // Native browser lazy loading
+        a.href = photo.url;  
+        a.className = "glightbox";
+        a.appendChild(imgnew); 
+        divnew.appendChild(a);
+        divnew.className = "inner";
+        linew.className = "box show";
+        linew.appendChild(divnew); 
+        photolist.appendChild(linew); 
+      });
+      imagesLoaded = true; 
+    }
+
+    lightbox.reload();
+  } 
+    /*
+    else {
+        // 3. Hide the div and reset button text/state
+        photoContainer.setAttribute('hidden', '');  
+    }
+     */
+}
+
+</script>
+
+
   </div>
 
   <!-- Footer -->
