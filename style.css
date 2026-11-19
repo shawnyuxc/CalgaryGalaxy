@@ -228,7 +228,7 @@
 
     .boxside-body ul {
       list-style: none;
-      margin: 0.5rem 0;
+      margin: 0.5rem 0;  
     }
 
     .boxside-body li {
@@ -520,7 +520,8 @@ a:hover {
 }  
 
 .box-container {
-    display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
     margin: 0;
     padding: 0;
     margin-top: 0em;
@@ -559,6 +560,7 @@ a:hover {
     max-width: calc(100% + 50px);
     transition: opacity 0.35s, transform 0.35s;
     transform: translate3d(-40px, 0, 0);
+    /*aspect-ratio: 16 / 9;*/
 }
 
 .box a::before {
@@ -574,6 +576,10 @@ a:hover {
     opacity: 0;
     transition: opacity 0.4s;
 }
+
+.two-cols .box {
+    width: 100%;
+} 
 
 .three-cols .box {
     width: 100%;
@@ -593,6 +599,10 @@ a:hover {
 } 
 
 @media (min-width: 390px) {
+    .two-cols .box {
+        width: 100%;
+    }
+    
     .three-cols .box {
         width: 50%;
     }
@@ -618,14 +628,26 @@ a:hover {
         font-size: 100%;
     }
 
+    .two-cols .box {
+        width: 50%;
+    }
+
     .three-cols .box {
         width: 33.3%;
     }
 
-    .three-cols .box:nth-child(3n+0) {
+    .two-cols .box:nth-child(3n+0) {
         margin-right: 0;
     }
 
+     .three-cols .box:nth-child(3n+0) {
+        margin-right: 0;
+    }
+
+    .two-cols .box:nth-child(3n+1) {
+        margin-left: 0;
+    } 
+    
     .three-cols .box:nth-child(3n+1) {
         margin-left: 0;
     }
