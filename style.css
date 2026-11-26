@@ -502,9 +502,14 @@
     } 
 }
  
-a  {
+a 
+{
     text-decoration: none;
     color: #860802;
+}
+ 
+a:hover {
+    text-decoration: none; 
 }
 
 .text-center {
