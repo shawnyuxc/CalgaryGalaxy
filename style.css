@@ -502,10 +502,9 @@
     } 
 }
  
-a,
-a:hover {
+a  {
     text-decoration: none;
-    color: #000;
+    color: #860802;
 }
 
 .text-center {
@@ -692,5 +691,12 @@ a:hover {
   color: #555;
 }
  
+ .contact-line {
+  display: flex;          /* or inline-flex if it shouldn't take the full width */
+  align-items: center;
+  gap: 0.5em;
+  padding-left:20px; 
+}
+.contact-line svg { flex-shrink: 0; }
        
   
