@@ -700,7 +700,7 @@ a:hover {
   display: flex;          /* or inline-flex if it shouldn't take the full width */
   align-items: center;
   gap: 0.5em;
-  padding-left:20px; 
+  padding-left:20px ; 
 }
 .contact-line svg { flex-shrink: 0; }
        
